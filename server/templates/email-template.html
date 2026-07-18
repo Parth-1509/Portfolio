@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New Contact Message</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f1a;
+      font-family: &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif;
+    "
+  >
+    <table
+      role="presentation"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #0f0f1a; padding: 40px 0"
+    >
+      <tr>
+        <td align="center">
+          <!-- Outer glow card -->
+          <table
+            role="presentation"
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            style="
+              max-width: 600px;
+              width: 100%;
+              background: linear-gradient(145deg, #1a1a2e, #16213e);
+              border-radius: 24px;
+              box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+              overflow: hidden;
+            "
+          >
+            <!-- Header with gradient + fake 3D orb -->
+            <tr>
+              <td
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #6366f1 0%,
+                    #8b5cf6 50%,
+                    #d946ef 100%
+                  );
+                  padding: 48px 40px 60px 40px;
+                  text-align: center;
+                  position: relative;
+                "
+              >
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                >
+                  <tr>
+                    <td align="center">
+                      <!-- 3D-ish sphere using radial gradient -->
+                      <table
+                        role="presentation"
+                        cellpadding="0"
+                        cellspacing="0"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              width: 72px;
+                              height: 72px;
+                              border-radius: 50%;
+                              background: radial-gradient(
+                                circle at 30% 30%,
+                                #ffffff,
+                                #c4b5fd 40%,
+                                #7c3aed 100%
+                              );
+                              box-shadow:
+                                0 10px 25px rgba(124, 58, 237, 0.5),
+                                inset -6px -6px 12px rgba(0, 0, 0, 0.25),
+                                inset 6px 6px 12px rgba(255, 255, 255, 0.4);
+                              text-align: center;
+                              font-size: 32px;
+                              line-height: 72px;
+                            "
+                          >
+                            ✉️
+                          </td>
+                        </tr>
+                      </table>
+                      <h1
+                        style="
+                          margin: 20px 0 6px 0;
+                          color: #ffffff;
+                          font-size: 26px;
+                          font-weight: 700;
+                          letter-spacing: -0.5px;
+                        "
+                      >
+                        New Message Received
+                      </h1>
+                      <p
+                        style="
+                          margin: 0;
+                          color: rgba(255, 255, 255, 0.85);
+                          font-size: 14px;
+                        "
+                      >
+                        Someone reached out through your portfolio
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Overlapping "floating" glass card -->
+            <tr>
+              <td style="padding: 0 30px">
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="
+                    margin-top: -32px;
+                    background: rgba(255, 255, 255, 0.06);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 18px;
+                    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+                  "
+                >
+                  <tr>
+                    <td style="padding: 28px 28px 8px 28px">
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-bottom: 18px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding: 14px 16px;
+                              background: rgba(255, 255, 255, 0.04);
+                              border-radius: 12px;
+                              border-left: 3px solid #8b5cf6;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 4px 0;
+                                color: #a78bfa;
+                                font-size: 11px;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                font-weight: 600;
+                              "
+                            >
+                              Name
+                            </p>
+                            <p
+                              style="margin: 0; color: #f1f1f5; font-size: 15px"
+                            >
+                              {{name}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-bottom: 18px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding: 14px 16px;
+                              background: rgba(255, 255, 255, 0.04);
+                              border-radius: 12px;
+                              border-left: 3px solid #d946ef;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 4px 0;
+                                color: #e879f9;
+                                font-size: 11px;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                font-weight: 600;
+                              "
+                            >
+                              Email
+                            </p>
+                            <p
+                              style="margin: 0; color: #f1f1f5; font-size: 15px"
+                            >
+                              {{email}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <table
+                        role="presentation"
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-bottom: 24px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding: 14px 16px;
+                              background: rgba(255, 255, 255, 0.04);
+                              border-radius: 12px;
+                              border-left: 3px solid #6366f1;
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 4px 0;
+                                color: #a5b4fc;
+                                font-size: 11px;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                                font-weight: 600;
+                              "
+                            >
+                              Message
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                color: #f1f1f5;
+                                font-size: 15px;
+                                line-height: 1.6;
+                              "
+                            >
+                              {{message}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- CTA button styled like a raised 3D button -->
+            <tr>
+              <td align="center" style="padding: 28px 30px 8px 30px">
+                <table role="presentation" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td
+                      style="
+                        border-radius: 12px;
+                        background: linear-gradient(135deg, #8b5cf6, #d946ef);
+                        box-shadow:
+                          0 8px 20px rgba(139, 92, 246, 0.45),
+                          inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                      "
+                    >
+                      <a
+                        href="mailto:{{email}}"
+                        style="
+                          display: inline-block;
+                          padding: 14px 32px;
+                          color: #ffffff;
+                          font-size: 14px;
+                          font-weight: 600;
+                          text-decoration: none;
+                        "
+                      >
+                        Reply to {{name}} →
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td style="padding: 32px 30px 36px 30px; text-align: center">
+                <p style="margin: 0; color: #6b7280; font-size: 12px">
+                  Sent automatically from your portfolio contact form
+                </p>
+                <p style="margin: 6px 0 0 0; color: #4b5563; font-size: 11px">
+                  {{timestamp}}
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
