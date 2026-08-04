@@ -32,7 +32,7 @@ export default function ProjectCard({ project, onOpen }) {
       onMouseLeave={handleLeave}
       onClick={() => onOpen(project)}
       data-cursor="grow"
-      className="glass group relative rounded-2xl p-8 flex flex-col justify-between h-[420px] cursor-pointer overflow-hidden will-change-transform"
+      className="glass group relative rounded-2xl p-5 sm:p-6 md:p-8 flex flex-col justify-between h-[300px] sm:h-[360px] md:h-[420px] cursor-pointer overflow-hidden will-change-transform"
     >
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -44,8 +44,8 @@ export default function ProjectCard({ project, onOpen }) {
       </div>
 
       <div className="relative">
-        <h3 className="font-display text-3xl mb-3 text-bone">{project.title}</h3>
-        <p className="text-bone-dim text-sm leading-relaxed mb-6">{project.tagline}</p>
+        <h3 className="font-display text-xl sm:text-2xl md:text-3xl mb-2 sm:mb-3 text-bone">{project.title}</h3>
+        <p className="text-bone-dim text-sm leading-relaxed mb-4 sm:mb-6 line-clamp-3">{project.tagline}</p>
         <div className="flex flex-wrap gap-2">
           {project.tech.slice(0, 3).map((t) => (
             <span key={t} className="font-mono text-[10px] uppercase tracking-wider px-3 py-1 rounded-full border border-line text-bone-dim">

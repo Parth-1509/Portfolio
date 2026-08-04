@@ -22,8 +22,17 @@ export default function AvatarFace() {
 
   const pointer = useRef({ x: -9999, y: -9999 })
   const noticing = useRef(false)
+  const hasFinePointer = useRef(true)
 
-  // eyes track the cursor; glance around on their own when it's away
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: none), (pointer: coarse)')
+    hasFinePointer.current = !mq.matches
+    const onChange = (e) => (hasFinePointer.current = !e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
+
+  // eyes track the cursor (or a touch point); glance around on their own otherwise
   useEffect(() => {
     const face = faceRef.current
     const maxOffset = 4.5
@@ -52,7 +61,25 @@ export default function AvatarFace() {
       idleTl && idleTl.pause()
       lookAt(e.clientX, e.clientY)
     }
+
+    const onTouchMove = (e) => {
+      const t = e.touches[0]
+      if (!t) return
+      pointer.current = { x: t.clientX, y: t.clientY }
+      idleTl && idleTl.pause()
+      lookAt(t.clientX, t.clientY)
+    }
+
+    // touch is intentionally lighter-weight: only track while actively touching,
+    // and let the idle glance resume shortly after release
+    const onTouchEnd = () => {
+      idleTl && idleTl.play()
+    }
+
     window.addEventListener('mousemove', onMove)
+    window.addEventListener('touchmove', onTouchMove, { passive: true })
+    window.addEventListener('touchend', onTouchEnd)
+    window.addEventListener('touchcancel', onTouchEnd)
 
     // random glances around the room while nobody's moving the cursor
     idleTl = gsap.timeline({ repeat: -1 })
@@ -68,11 +95,14 @@ export default function AvatarFace() {
 
     return () => {
       window.removeEventListener('mousemove', onMove)
+      window.removeEventListener('touchmove', onTouchMove)
+      window.removeEventListener('touchend', onTouchEnd)
+      window.removeEventListener('touchcancel', onTouchEnd)
       idleTl && idleTl.kill()
     }
   }, [])
 
-  // notice the cursor when it comes near the ring
+  // notice the cursor/touch when it comes near the ring
   useEffect(() => {
     const face = faceRef.current
     let raf
@@ -199,7 +229,7 @@ export default function AvatarFace() {
   }
 
   return (
-    <div ref={faceRef} className="relative z-10 w-52 h-52 md:w-60 md:h-60">
+    <div ref={faceRef} className="relative z-10 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48">
       <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
         {/* eyes */}
         <g>

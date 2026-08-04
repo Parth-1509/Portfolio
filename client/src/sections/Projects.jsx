@@ -110,13 +110,13 @@ export default function Projects() {
         className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,168,118,0.06), transparent 70%)' }}
       />
-      <div className="absolute top-28 left-6 md:left-16 z-20">
+      <div className="absolute top-20 sm:top-24 md:top-28 left-6 md:left-16 z-20">
         <p className="eyebrow mb-2">Selected Work</p>
-        <h2 className="font-display text-4xl md:text-6xl text-bone">Projects</h2>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-6xl text-bone">Projects</h2>
       </div>
 
       {/* nav dots - back to original, this is NOT the carousel */}
-      <div className="absolute top-28 right-6 md:right-16 z-20 flex flex-col items-end gap-3">
+      <div className="absolute top-20 sm:top-24 md:top-28 right-6 md:right-16 z-20 flex flex-col items-end gap-2 sm:gap-3">
         {projects.map((p, i) => (
           <button
             key={p.id}
@@ -136,17 +136,17 @@ export default function Projects() {
       <div
         ref={trackRef}
         className="absolute inset-0 flex items-center justify-center"
-        style={{ perspective: '1600px', paddingBottom: '18vh' }}
+        style={{ perspective: '1600px', paddingTop: '14vh', paddingBottom: '20vh' }}
       >
-        <div className="relative w-[80vw] max-w-2xl h-[48vh] md:h-[48vh] md:max-w-3xl" style={{ transformStyle: 'preserve-3d' }}>
+        <div className="relative w-[85vw] sm:w-[80vw] max-w-2xl h-[32vh] sm:h-[40vh] md:h-[46vh] md:max-w-3xl" style={{ transformStyle: 'preserve-3d' }}>
           {projects.map((p, i) => (
             <div
               key={p.id}
               ref={(el) => (cardsRef.current[i] = el)}
-              className="absolute inset-0 rounded-3xl overflow-hidden glass will-change-transform"
+              className="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden glass will-change-transform"
               style={{ background: COVERS[i % COVERS.length] }}
             >
-              <ProjectImage images={p.images} alt={p.title}  />
+              <ProjectImage images={p.images} alt={p.title} fill />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 {/* 
@@ -159,7 +159,7 @@ export default function Projects() {
       </div>
 
       {/* smooth crossfade: title + tags animate together as one unit, exit before enter */}
-      <div className="absolute inset-x-0 bottom-0 z-20 px-6 md:px-16 pb-10 md:pb-14 pointer-events-none">
+      <div className="absolute inset-x-0 bottom-0 z-20 px-6 sm:px-10 md:px-16 pb-8 sm:pb-10 md:pb-14 pointer-events-none">
         <div className="max-w-xl mx-auto text-center pointer-events-auto">
           <AnimatePresence mode="wait">
             <motion.div
@@ -169,9 +169,9 @@ export default function Projects() {
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h3 className="font-display text-3xl md:text-4xl text-bone mb-5">{project.title}</h3>
+              <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-bone mb-4 sm:mb-5">{project.title}</h3>
 
-              <div className="flex flex-wrap justify-center gap-2 mb-7">
+              <div className="flex flex-wrap justify-center gap-2 mb-5 sm:mb-7">
                 {project.tech.map((t) => (
                   <span
                     key={t}
@@ -184,11 +184,11 @@ export default function Projects() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             <button
               data-cursor="grow"
               onClick={() => setModalProject(project)}
-              className="flex items-center gap-2 px-6 py-3 rounded-full text-bone hover:text-bronze hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 font-mono text-xs uppercase tracking-widest"
+              className="flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-bone hover:text-bronze hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 font-mono text-xs uppercase tracking-widest"
               style={glassBtn}
             >
               View Case <FiArrowUpRight />
@@ -196,7 +196,7 @@ export default function Projects() {
 
             {project.locked ? (
               <span
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-bone-dim font-mono text-xs uppercase tracking-widest cursor-not-allowed opacity-70"
+                className="flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-bone-dim font-mono text-xs uppercase tracking-widest cursor-not-allowed opacity-70"
                 style={glassBtn}
                 title="Not available"
               >
@@ -207,7 +207,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="grow"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-ink hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 font-mono text-xs uppercase tracking-widest"
+                className="flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-ink hover:-translate-y-0.5 hover:scale-105 active:scale-95 transition-all duration-300 font-mono text-xs uppercase tracking-widest"
                 style={glassBtnBronze}
               >
                 <FiExternalLink /> Live Demo

@@ -80,6 +80,14 @@ body {
     background 0.25s ease;
 }
 
+/* Custom cursor is meaningless on touch devices — hide it there */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
 .magnetic {
   will-change: transform;
 }
@@ -272,6 +280,19 @@ body {
   transform: translateY(1px);
   transition-duration: 0.07s;
 }
+
+/* Slightly tighter pill buttons on small screens */
+@media (max-width: 480px) {
+  .liquid-btn {
+    padding: 0.7rem 1.3rem;
+    font-size: 0.72rem;
+  }
+  .btn-3d__face {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.72rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -281,4 +302,11 @@ body {
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -12,12 +12,12 @@ const iconFor = (label) => {
 
 export default function Footer() {
   return (
-    <footer className="relative w-full border-t border-line px-6 md:px-16 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p className="font-mono text-[11px] uppercase tracking-widest text-bone-dim">
+    <footer className="relative w-full border-t border-line px-6 md:px-16 py-6 md:py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-bone-dim">
         © {new Date().getFullYear()} Parth Patel — Full Stack Web Developer
       </p>
 
-      <div className="flex items-center gap-5">
+      <div className="flex items-center gap-4 sm:gap-5">
         {socials
           .filter((s) => ['GitHub', 'LinkedIn', 'Email'].includes(s.label))
           .map((s) => (

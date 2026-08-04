@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { useRef, useEffect, useState } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import { Environment, Float } from '@react-three/drei'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
 
@@ -91,6 +91,22 @@ function Knot({ mouse, drag }) {
   )
 }
 
+// keeps the knot framed consistently across aspect ratios instead of
+// looking oversized/cropped on narrow phone screens
+function ResponsiveCamera() {
+  const { camera, size } = useThree()
+
+  useEffect(() => {
+    const aspect = size.width / size.height
+    // pull the camera back on tall/narrow viewports so the knot still fits
+    const z = aspect < 0.7 ? 7 : aspect < 1 ? 6 : 5
+    camera.position.z = z
+    camera.updateProjectionMatrix()
+  }, [size, camera])
+
+  return null
+}
+
 export default function FloatingObject({ className = '' }) {
   const mouse = useRef({ x: 0, y: 0 })
   const drag = useRef({
@@ -98,6 +114,15 @@ export default function FloatingObject({ className = '' }) {
     last: { current: { x: 0, y: 0 } },
     offset: { current: { x: 0, y: 0 } },
   }).current
+  const [isCoarsePointer, setIsCoarsePointer] = useState(false)
+
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: none), (pointer: coarse)')
+    setIsCoarsePointer(mq.matches)
+    const onChange = (e) => setIsCoarsePointer(e.matches)
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   useEffect(() => {
     const onMove = (e) => {
@@ -109,16 +134,17 @@ export default function FloatingObject({ className = '' }) {
   }, [])
 
   return (
-    <div className={className}>
+    <div className={className} style={{ touchAction: 'pan-y' }}>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={[1, 2]}
+        dpr={isCoarsePointer ? [1, 1.5] : [1, 2]}
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.35} />
         <directionalLight position={[3, 4, 4]} intensity={1.3} color="#ffe9c2" />
         <directionalLight position={[-4, -2, -3]} intensity={0.6} color="#c9a876" />
         <pointLight position={[0, 3, 2]} intensity={0.4} color="#fff2dc" />
+        <ResponsiveCamera />
         <Knot mouse={mouse} drag={drag} />
         {/* sky-based preset — no buildings/architecture to reflect, unlike "city" or "apartment" */}
         <Environment preset="sunset" blur={0.9} />

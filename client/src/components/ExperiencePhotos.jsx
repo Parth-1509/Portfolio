@@ -26,9 +26,12 @@ export default function ExperiencePhotos({ photos, interval = 4000 }) {
   }, [index])
 
   return (
-    <div className="relative w-full " style={{ height: '500px',maxWidth:'500px' }}>
+    <div
+      className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[4/5]"
+      style={{ maxWidth: '500px', maxHeight: '500px' }}
+    >
             <div
-      className="absolute inset-0 rounded-3xl w-full overflow-hidden"
+      className="absolute inset-0 rounded-2xl sm:rounded-3xl w-full overflow-hidden"
       style={{
         background:
           'linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.02) 45%, rgba(201,168,118,0.08) 100%)',
@@ -63,7 +66,7 @@ export default function ExperiencePhotos({ photos, interval = 4000 }) {
     </div>
 
       {photos.length > 1 && (
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="absolute -bottom-6 sm:-bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
           {photos.map((_, i) => (
             <span
               key={i}

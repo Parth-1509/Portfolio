@@ -1,5 +1,4 @@
-const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
-
+const CDN = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 export const skills = [
   { name: "HTML", logo: `${CDN}/html5/html5-original.svg` },
   { name: "CSS", logo: `${CDN}/css3/css3-original.svg` },

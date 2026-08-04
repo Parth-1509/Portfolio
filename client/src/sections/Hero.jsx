@@ -33,7 +33,7 @@ export default function Hero() {
       />
 
       {/* content — left-aligned, vertically centered */}
-      <div className="relative z-10 h-full w-full flex flex-col justify-center px-6 md:px-16 pt-20 md:pt-0">
+      <div className="relative z-10 h-full w-full flex flex-col justify-center px-6 sm:px-10 md:px-16 pt-20 md:pt-0">
         <div className="max-w-xl text-left">
           <p className="eyebrow mb-6">Full Stack Web Developer</p>
 
@@ -42,7 +42,7 @@ export default function Hero() {
             as="h1"
             trigger="none"
             mode="chars"
-            className="font-display font-light leading-[0.9] text-[13vw] md:text-[7vw] tracking-[-0.02em] text-bone block drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]"
+            className="font-display font-light leading-[0.9] text-[13vw] sm:text-[10vw] md:text-[7vw] tracking-[-0.02em] text-bone block drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]"
           />
           <RevealText
             text="PATEL"
@@ -50,7 +50,7 @@ export default function Hero() {
             trigger="none"
             delay={0.3}
             mode="chars"
-            className="font-display italic font-light leading-[0.9] text-[13vw] md:text-[7vw] tracking-[-0.02em] text-bronze block drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]"
+            className="font-display italic font-light leading-[0.9] text-[13vw] sm:text-[10vw] md:text-[7vw] tracking-[-0.02em] text-bronze block drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]"
           />
 
           <p className="mt-8 md:mt-10 text-bone-dim text-base md:text-lg font-light leading-relaxed max-w-md drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
@@ -67,9 +67,9 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bone-dim font-mono text-[10px] uppercase tracking-widest">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-bone-dim font-mono text-[10px] uppercase tracking-widest">
         Scroll
-        <span className="w-px h-8 bg-line" />
+        <span className="w-px h-6 md:h-8 bg-line" />
       </div>
     </section>
   )

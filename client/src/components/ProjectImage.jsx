@@ -76,7 +76,8 @@ export default function ProjectImage({
           inset: 0;
           width: 100%;
           height: 100%;
-          object-fit: fit;
+          object-fit: cover;
+          object-position: center;
           opacity: 0;
           transform: scale(1.02);
           transition:

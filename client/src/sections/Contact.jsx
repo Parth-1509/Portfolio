@@ -68,20 +68,20 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative min-h-screen w-full bg-ink  px-6 md:px-16 py-28 md:py-16 flex flex-col justify-center">
+    <section id="contact" className="relative min-h-screen w-full bg-ink  px-6 md:px-16 py-20 md:py-16 flex flex-col justify-center">
 
       <div className="max-w-3xl">
         <p className="eyebrow mb-4">Get in touch</p>
-        <h2 className="font-display text-5xl md:text-7xl text-bone mb-8">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-7xl text-bone mb-8">
           Let's build something worth shipping.
         </h2>
-        <p className="text-bone-dim text-base md:text-lg max-w-xl mb-14">
+        <p className="text-bone-dim text-base md:text-lg max-w-xl mb-10 md:mb-14">
           Open to full-time roles and select freelance projects. Tell me a
           little about what you're working on.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-8 ">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 gap-8">
             <div className="flex flex-col gap-2">
               <label className="font-mono text-[10px] uppercase tracking-widest text-bone-dim">Name</label>
               <input
@@ -119,7 +119,7 @@ export default function Contact() {
             />
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <button
               ref={magnetic.ref}
               onMouseMove={magnetic.onMouseMove}
@@ -127,7 +127,7 @@ export default function Contact() {
               type="submit"
               disabled={status === 'sending'}
               data-cursor="grow"
-              className="magnetic hover:text-white inline-flex items-center gap-3 w-fit rounded-full font-mono text-xs uppercase tracking-widest px-8 py-4 text-ink disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
+              className="magnetic hover:text-white inline-flex items-center gap-3 w-fit rounded-full font-mono text-xs uppercase tracking-widest px-6 py-3.5 sm:px-8 sm:py-4 text-ink disabled:opacity-60 disabled:cursor-not-allowed transition-colors duration-300"
               style={{
                 background: 'linear-gradient(135deg, rgba(201,168,118,0.85) 0%, rgba(201,168,118,0.55) 50%, rgba(201,168,118,0.7) 100%)',
                 backdropFilter: 'blur(14px) saturate(160%)',
