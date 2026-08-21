@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import contactRoutes from './routes/contactRoutes.js'
 import { notFound, errorHandler } from './middleware/errorHandler.js'
-const cors = require('cors');
+
 dotenv.config()
 
 const app = express()
