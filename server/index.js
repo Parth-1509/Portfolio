@@ -23,6 +23,7 @@ app.use('/api/contact', contactRoutes)
 app.use(notFound)
 app.use(errorHandler)
 
+
 mongoose
   .connect(MONGO_URI)
   .then(() => {
