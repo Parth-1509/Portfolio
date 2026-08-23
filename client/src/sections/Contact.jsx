@@ -58,8 +58,14 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
+    const API_URL =
+      window.location.hostname === 'localhost'
+        ? 'http://localhost:5000'
+        : 'https://portfolio-f8v4.onrender.com'
+
     try {
-      await axios.post('http://localhost:5000/api/contact' || "https://portfolio-f8v4.onrender.com/api/contact", form)
+      await axios.post(`${API_URL}/api/contact`, form)
+
       setStatus('sent')
       setForm({ name: '', email: '', message: '' })
     } catch (err) {
