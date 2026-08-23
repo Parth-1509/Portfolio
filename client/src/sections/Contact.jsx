@@ -58,6 +58,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
+    
     const API_URL =
       window.location.hostname === 'localhost'
         ? 'http://localhost:5000'
