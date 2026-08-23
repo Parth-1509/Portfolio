@@ -59,7 +59,7 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     try {
-      await axios.post('http://localhost:5000/api/contact', form)
+      await axios.post('http://localhost:5000/api/contact' || "https://portfolio-f8v4.onrender.com/api/contact", form)
       setStatus('sent')
       setForm({ name: '', email: '', message: '' })
     } catch (err) {
@@ -152,7 +152,7 @@ export default function Contact() {
           </div>
         </form>
 
-       
+
       </div>
     </section>
   )
